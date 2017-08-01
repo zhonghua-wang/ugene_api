@@ -1,0 +1,10 @@
+django
+pillow
+six
+djangorestframework
+django-filter
+django-cors-headers
+markdown
+djoser
+dynamic-rest
+django-hashid-field
