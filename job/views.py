@@ -7,19 +7,19 @@ from . import models, serializers
 
 
 class UserViewSet(DynamicModelViewSet):
-    # queryset = models.User.objects.all()
+    queryset = models.User.objects.all()
     serializer_class = serializers.UserSerializer
 
     permission_classes = (permissions.IsAuthenticated,)
     ordering = ('username',)
 
-    def get_queryset(self, *args, **kwargs):
-        user = self.request.user
-        is_admin = user.is_superuser
-        if is_admin:
-            return models.User.objects.all()
-        else:
-            return models.User.objects.get(user.id)
+    # def get_queryset(self, *args, **kwargs):
+    #     user = self.request.user
+    #     is_admin = user.is_superuser
+    #     if is_admin:
+    #         return models.User.objects.all()
+    #     else:
+    #         return models.User.objects.filter(id=user.id)
 
 class ReportViewSet(DynamicModelViewSet):
     queryset = models.Report.objects.all()
@@ -40,6 +40,7 @@ class ReportUnitViewSet(DynamicModelViewSet):
 class JobViewSet(DynamicModelViewSet):
     queryset = models.Job.objects.all()
     serializer_class = serializers.JobSerializer
+    permission_classes = (permissions.IsAuthenticated, )
 
     ordering = ('created_at', )
 

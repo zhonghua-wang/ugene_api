@@ -36,12 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'rest_framework.authtoken',
     'django_filters',
     'corsheaders',
     'dynamic_rest',
     'djoser',
-    'job'
+    'job',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
