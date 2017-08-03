@@ -7,7 +7,9 @@ from job import models
 class UserSerializer(DynamicModelSerializer):
     class Meta:
         model = models.User
-        exclude = []
+        exclude = [
+            'password'
+        ]
 
 
 class ReportSerializer(DynamicModelSerializer):

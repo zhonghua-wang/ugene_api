@@ -142,7 +142,12 @@ REST_FRAMEWORK = {
     )
 
 }
-
+# Djoser
+DJOSER = {
+    'SERIALIZERS': {
+        'user': 'job.serializers.UserSerializer',
+    }
+}
 CORS_ORIGIN_WHITELIST = ['localhost:4200']
 
 # hash ID

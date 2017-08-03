@@ -30,5 +30,5 @@ routers.register('mutants', job_views.MutantViewSet)
 urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   url(r'^api/', include(routers.urls)),
-                  url(r'^auth/', include('djoser.urls.authtoken'))
+                  url(r'^api/auth/', include('djoser.urls.authtoken'))
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
