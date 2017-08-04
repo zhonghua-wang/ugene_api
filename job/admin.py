@@ -5,6 +5,15 @@ from django.contrib import admin
 from job import models
 
 
+class ReportUnitInline(admin.StackedInline):
+    model = models.ReportUnit
+
+
+class ReportInline(admin.TabularInline):
+    model = models.Report
+    max_num = 1
+
+
 @admin.register(models.User)
 class UserAdmin(admin.ModelAdmin):
     pass
@@ -12,7 +21,9 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(models.Report)
 class ReportAdmin(admin.ModelAdmin):
-    pass
+    inlines = [
+        ReportUnitInline,
+    ]
 
 
 @admin.register(models.ReportUnit)
@@ -27,4 +38,6 @@ class MutantAdmin(admin.ModelAdmin):
 
 @admin.register(models.Job)
 class JobAdmin(admin.ModelAdmin):
-    pass
+    inlines = [
+        ReportInline,
+    ]
