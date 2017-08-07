@@ -42,7 +42,7 @@ class JobViewSet(DynamicModelViewSet):
     serializer_class = serializers.JobSerializer
     permission_classes = (permissions.IsAuthenticated, )
 
-    ordering = ('created_at', )
+    ordering = ('-created_at', )
 
 
 class MutantViewSet(DynamicModelViewSet):
